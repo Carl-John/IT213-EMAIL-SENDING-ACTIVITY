@@ -39,10 +39,24 @@ function sendEmail(e) {
     const spinner = document.querySelector('#spinner');
     spinner.style.display = 'block';
 
+    //Show the Img
+    const sendEmailImg = document.createElement('img');
+    sendEmailImg.src = 'img/mail.gif';
+    sendEmailImg.style.display = 'block';
+
     //Hide spinner then show send email img
     setTimeout(function () {
         //Hide the spinner
         spinner.style.display = 'none';
+
+        //Show the Image
+        document.querySelector('#loaders').appendChild(sendEmailImg);
+
+        //After 5 seconds hide the image and reset the form
+        setTimeout(function(){
+            sendEmailForm.reset();
+            sendEmailImg.remove();
+        }, 5000);
     }, 3000);
 }
 
